@@ -19,7 +19,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Test App"), backgroundColor: Colors.green),
+      appBar: AppBar(
+        title: Text("Test App", style: TextStyle(fontWeight: FontWeight.w500)),
+        leading: Icon(Icons.menu),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+      ),
       body: Center(
         child: Text(
           "Hello World",
