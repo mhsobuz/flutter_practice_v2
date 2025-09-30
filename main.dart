@@ -37,21 +37,39 @@ class MyHomePage extends StatelessWidget {
 
       // Body Properties
       // =======================
-      body: ListView.builder(
-        itemCount: 8,
-        itemBuilder: (BuildContext contest, int index) {
-          return Container(
-            margin: EdgeInsets.all(8),
+      body: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 4 / 2, // width/height
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 16,
+        ),
+        children: [
+          Container(
+            color: Colors.red,
+            margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.blue[200],
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-            ),
-            height: 200,
-            width: 300,
-            child: Text("ListView Container: $index"),
-          );
-        },
+            child: Text("Hello,", style: TextStyle(fontSize: 24)),
+          ),
+          Container(
+            color: Colors.yellow,
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(12),
+            child: Text("How", style: TextStyle(fontSize: 24)),
+          ),
+          Container(
+            color: Colors.blue,
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(12),
+            child: Text("are", style: TextStyle(fontSize: 24)),
+          ),
+          Container(
+            color: Colors.teal,
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(12),
+            child: Text("you", style: TextStyle(fontSize: 24)),
+          ),
+        ],
       ),
     );
   }
