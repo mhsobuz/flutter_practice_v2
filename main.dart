@@ -19,6 +19,11 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Scaffold background color
+      backgroundColor: Colors.teal,
+
+      // AppBar Properties
+      // ======================
       appBar: AppBar(
         title: Text(
           "My First App",
@@ -29,16 +34,23 @@ class MyHomePage extends StatelessWidget {
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          "Hello World",
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue,
-            backgroundColor: Colors.red,
+
+      // Body Properties
+      // =======================
+      body: Container(
+        margin: EdgeInsets.all(12), // margin: Outside of Box
+        padding: EdgeInsets.all(24), // padding: Inside of Box
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black, // Border width
+            width: 2, // Border color
           ),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          color: Colors.red, // Container fill color
         ),
+        height: 200,
+        width: 300,
+        child: Text("Red Container", style: TextStyle(fontSize: 24)),
       ),
     );
   }
