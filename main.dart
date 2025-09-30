@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -37,20 +37,27 @@ class MyHomePage extends StatelessWidget {
 
       // Body Properties
       // =======================
-      body: Container(
-        margin: EdgeInsets.all(12), // margin: Outside of Box
-        padding: EdgeInsets.all(24), // padding: Inside of Box
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black, // Border width
-            width: 2, // Border color
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          color: Colors.red, // Container fill color
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            for (var i = 1; i <= 20; i++)
+              Container(
+                margin: EdgeInsets.all(12), // margin: Outside of Box
+                padding: EdgeInsets.all(16), // padding: Inside of Box
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Border width
+                    width: 2, // Border color
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                  color: Colors.red, // Container fill color
+                ),
+                height: 200,
+                width: double.infinity,
+                child: Text("Red Container $i", style: TextStyle(fontSize: 24)),
+              ),
+          ],
         ),
-        height: 200,
-        width: 300,
-        child: Text("Red Container", style: TextStyle(fontSize: 24)),
       ),
     );
   }
