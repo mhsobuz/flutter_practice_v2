@@ -37,39 +37,20 @@ class MyHomePage extends StatelessWidget {
 
       // Body Properties
       // =======================
-      body: GridView(
+      body: GridView.builder(
+        padding: EdgeInsets.all(16),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 4 / 2, // width/height
+          crossAxisCount: 4,
           mainAxisSpacing: 8,
-          crossAxisSpacing: 16,
+          crossAxisSpacing: 4,
         ),
-        children: [
-          Container(
-            color: Colors.red,
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(12),
-            child: Text("Hello,", style: TextStyle(fontSize: 24)),
-          ),
-          Container(
-            color: Colors.yellow,
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(12),
-            child: Text("How", style: TextStyle(fontSize: 24)),
-          ),
-          Container(
-            color: Colors.blue,
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(12),
-            child: Text("are", style: TextStyle(fontSize: 24)),
-          ),
-          Container(
+        itemCount: 28,
+        itemBuilder: (context, index) {
+          return Container(
             color: Colors.teal,
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(12),
-            child: Text("you", style: TextStyle(fontSize: 24)),
-          ),
-        ],
+            child: Center(child: Text(index.toString())),
+          );
+        },
       ),
     );
   }
