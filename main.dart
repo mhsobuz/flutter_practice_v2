@@ -20,7 +20,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // Scaffold background color
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.white,
 
       // AppBar Properties
       // ======================
@@ -37,27 +37,21 @@ class MyHomePage extends StatelessWidget {
 
       // Body Properties
       // =======================
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            for (var i = 1; i <= 20; i++)
-              Container(
-                margin: EdgeInsets.all(12), // margin: Outside of Box
-                padding: EdgeInsets.all(16), // padding: Inside of Box
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Border width
-                    width: 2, // Border color
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  color: Colors.red, // Container fill color
-                ),
-                height: 200,
-                width: double.infinity,
-                child: Text("Red Container $i", style: TextStyle(fontSize: 24)),
-              ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: 8,
+        itemBuilder: (BuildContext contest, int index) {
+          return Container(
+            margin: EdgeInsets.all(8),
+            padding: EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.blue[200],
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
+            height: 200,
+            width: 300,
+            child: Text("ListView Container: $index"),
+          );
+        },
       ),
     );
   }
